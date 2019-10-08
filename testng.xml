@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" name="Functional_Automation_Test" parallel="methods">
+  <test name="All">
+    <classes>
+      <class name="demo.Sample"/>
+    </classes>
+  </test> <!-- All -->
+</suite> <!-- Functional_Automation_Test -->
