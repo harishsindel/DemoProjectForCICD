@@ -1,16 +1,37 @@
 package demo;
 
+import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
 
 import supportFiles.logWriter;
 
 public class Sample {
+	ExtentReports extent;
+	ExtentTest test;
+	
+	@BeforeTest
+	public void startTest()
+	{
+		extent = new ExtentReports(System.getProperty("user.dir")+"/test-output/SampleExtentReport.html", true);
+		extent.addSystemInfo("Host Name", "Sample Extent Report");
+		extent.addSystemInfo("Environment", "Automation Testing");
+		extent.addSystemInfo("User Name", "harish Sindel");
+		
+		extent.loadConfig(new File(System.getProperty("user.dir")+"\\extent-config.xml"));
+		System.out.println("Before Test");
+	}
+	
 		@Test
 		public void testDemo() {
 		try {
@@ -41,5 +62,12 @@ public class Sample {
 			e.printStackTrace();
 		}
 	}
+		
+		@AfterTest
+		public void endReport()
+		{
+			extent.flush();
+			extent.close();
+		}
 
 }
