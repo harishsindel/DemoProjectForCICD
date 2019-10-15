@@ -30,7 +30,9 @@ public class Sample {
 			select1.selectByValue("California");
 			select1.selectByIndex(2);
 			select1.deselectAll();
-			driver.close();
+//			driver.close();
+			driver.quit();
+			Runtime.getRuntime().exec("taskkill /F /IM geckodriver.exe /T");
 		}
 		catch(Exception e) {
 			e.printStackTrace();
