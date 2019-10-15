@@ -8,10 +8,13 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
+import supportFiles.logWriter;
+
 public class Sample {
 		@Test
 		public void testDemo() {
 		try {
+			logWriter.writeLog("INFO", "class: GetAllCountries", "Pre-Condition setting done.");
 			System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+"\\drivers\\geckodriver.exe");
 			WebDriver driver = new FirefoxDriver();
 			driver.manage().timeouts().implicitlyWait(5000, TimeUnit.SECONDS);
