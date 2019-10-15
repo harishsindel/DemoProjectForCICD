@@ -49,7 +49,9 @@ public class Sample {
 			driver.findElement(By.className("ui-datepicker-trigger")).click();
 			System.out.println("******************* "+driver.getClass()+" *******************");
 			test.log(LogStatus.PASS,"******************* "+driver.getClass()+" *******************");
+			logWriter.writeLog("INFO", "SampleClass","******************* "+driver.getClass()+" *******************");
 			test.log(LogStatus.PASS, "******************* "+driver.getCurrentUrl()+" *******************");
+			logWriter.writeLog("INFO", "SampleClass","******************* "+driver.getCurrentUrl()+" *******************");
 			System.out.println("******************* "+driver.getCurrentUrl()+" *******************");
 			driver.navigate().to("https://www.seleniumeasy.com/test/basic-select-dropdown-demo.html");
 			Select select1 = new Select(driver.findElement(By.name("States")));
